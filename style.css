@@ -25,9 +25,11 @@ body {
 }
 
 .box-fill {
-  background-image: url('https://cdn.pixabay.com/photo/2023/06/18/12/17/meadow-8071932_640.jpg');
+  background-image: url('https://cdn.pixabay.com/photo/2018/06/25/14/27/background-image-3497025_640.jpg');
   height: 145px;
   width: 145px;
+  background-position: center center;
+  background-size: cover;
   cursor: pointer;
 }
 

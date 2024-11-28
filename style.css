@@ -9,10 +9,39 @@ body {
   font-family: 'Roboto', sans-serif;
   color: #113f67;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   height: 100vh;
   overflow: hidden;
-  background-color: #e7eaf6;
+  background-color: #6d88f3;
+}
+
+.box {
+  height: 150px;
+  width: 150px;
+  background-color: #fff;
+  margin: 10px;
+  border: 4px solid #26252a;
+}
+
+.box-fill {
+  background-image: url('https://cdn.pixabay.com/photo/2023/06/18/12/17/meadow-8071932_640.jpg');
+  height: 145px;
+  width: 145px;
+  cursor: pointer;
+}
+
+.box-hold {
+  border: solid 4px #ccc;
+}
+
+.hovered {
+  background-color: #26252a;
+  border: 4px dashed #fff;
+}
+
+@media (max-width: 800px) {
+  body {
+    flex-direction: column;
+  }
 }

@@ -1,37 +1,41 @@
-const box = document.querySelectorAll('.box');
+const boxes = document.querySelectorAll('.box');
 const boxFill = document.querySelector('.box-fill');
 
-box.forEach((box) => {
+// Add drag events to all boxes
+boxes.forEach((box) => {
   box.addEventListener('dragover', dragOver);
   box.addEventListener('dragenter', dragEnter);
   box.addEventListener('dragleave', dragLeave);
   box.addEventListener('drop', dragDrop);
 });
 
+// Add drag events to the draggable item
 boxFill.addEventListener('dragstart', dragStart);
 boxFill.addEventListener('dragend', dragEnd);
 
 function dragStart() {
-  this.className += ' hold';
-  setInterval(() => ((this.className = 'invisible'), 0));
+  this.classList.add('box-hold'); // Add holding class for visual feedback
+  setTimeout(() => this.classList.add('invisible'), 0); // Make invisible after drag starts
 }
+
 function dragEnd() {
-  this.className = 'boxFill';
+  this.className = 'box-fill'; // Reset to original class
 }
+
 function dragOver(e) {
-  e.preventDefault();
+  e.preventDefault(); // Necessary to allow dropping
 }
 
 function dragEnter(e) {
   e.preventDefault();
-  this.className += ' hovered';
+  this.classList.add('hovered'); // Highlight the box being hovered
 }
 
 function dragLeave() {
-  this.className = 'box';
+  this.classList.remove('hovered'); // Remove hover effect
 }
 
 function dragDrop() {
-  this.className = 'box';
-  this.append(boxFill);
+  this.classList.remove('hovered'); // Remove hover effect
+  this.appendChild(boxFill); // Append the draggable item to the new box
 }
